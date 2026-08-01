@@ -105,43 +105,43 @@
 
     <!-- Header Navigation -->
     <header class="sticky top-0 z-30 border-b border-slate-200/80 dark:border-slate-800/80 glass-panel" role="banner">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-2 sm:gap-4">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
             
-            <!-- Logo & Title -->
-            <div class="flex items-center gap-2.5 min-w-0">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-md shadow-emerald-500/20 shrink-0" aria-hidden="true">
+            <!-- Logo & Title Area -->
+            <div class="flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center font-bold text-sm sm:text-lg shadow-md shadow-emerald-500/20 shrink-0" aria-hidden="true">
                     <i class="fa-solid fa-brain"></i>
                 </div>
-                <div class="truncate">
-                    <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5 truncate">
-                        Smart Expense <span class="text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-200 dark:border-emerald-800 shrink-0">by M/L</span>
+                <div class="min-w-0 flex-1">
+                    <h1 class="font-extrabold text-sm sm:text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-1 sm:gap-1.5 truncate">
+                        <span class="truncate">Smart Expense</span> <span class="text-[9px] sm:text-xs px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-200 dark:border-emerald-800 shrink-0">by M/L</span>
                     </h1>
-                    <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 truncate" data-i18n="subtitle">Klasifikasi Pengeluaran Otomatis • ML Client-Side</p>
+                    <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 truncate hidden sm:block" data-i18n="subtitle">Klasifikasi Pengeluaran Otomatis • ML Client-Side</p>
                 </div>
             </div>
 
-            <!-- Header Controls -->
-            <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <!-- Header Controls (Currency, Lang, Info Modal) -->
+            <div class="flex items-center gap-1 sm:gap-2 shrink-0">
                 <!-- FX Rate Pill -->
-                <div id="fxRatePill" class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-mono" title="Live Exchange Rate">
+                <div id="fxRatePill" class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-mono" title="Live Exchange Rate">
                     <i class="fa-solid fa-coins text-amber-500" aria-hidden="true"></i>
                     <span id="fxRateText">1 USD = Rp --</span>
                 </div>
 
                 <!-- Currency Switcher -->
-                <select id="currencySelect" onchange="changeCurrency(this.value)" aria-label="Select Currency" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer min-h-[36px]">
+                <select id="currencySelect" onchange="changeCurrency(this.value)" aria-label="Select Currency" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] sm:text-xs font-semibold rounded-lg px-1.5 py-1 sm:px-2 sm:py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer min-h-[32px] sm:min-h-[36px]">
                     <option value="IDR">Rp</option>
                     <option value="USD">$</option>
                 </select>
 
                 <!-- Language Switcher -->
-                <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Select Language" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer min-h-[36px]">
+                <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Select Language" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] sm:text-xs font-semibold rounded-lg px-1.5 py-1 sm:px-2 sm:py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer min-h-[32px] sm:min-h-[36px]">
                     <option value="id">ID</option>
                     <option value="en">EN</option>
                 </select>
 
                 <!-- ML Info Modal Button -->
-                <button onclick="toggleModal(true)" aria-label="How ML Works Info Modal" class="p-2 sm:px-3 sm:py-1.5 text-xs font-medium rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5 transition min-h-[36px]" title="Cara Kerja ML">
+                <button onclick="toggleModal(true)" aria-label="How ML Works Info Modal" class="p-1.5 sm:px-3 sm:py-1.5 text-xs font-medium rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5 transition min-h-[32px] sm:min-h-[36px]" title="Cara Kerja ML">
                     <i class="fa-solid fa-circle-info text-sm" aria-hidden="true"></i>
                     <span class="hidden sm:inline" data-i18n="howItWorksBtn">Cara Kerja ML</span>
                 </button>
