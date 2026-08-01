@@ -41,11 +41,19 @@ Interactive Retraining: When a user changes a category in the table, the token w
 
 🚀 Getting Started
 
+🌐 Live Application URL
+
+Access the live application directly in your browser without any installation:
+
+👉 https://sisigitadi.github.io/smartexpenseML/
+
+1. Running Locally (No Installation Required)
+
 1. Running Locally (No Installation Required)
 
 Clone or download this repository:
 
-git clone https://github.com/username/smart-expense-ml.git
+git clone https://github.com/sisigitadi/smartexpenseML.git
 
 
 Double-click or drag the index.html file into any web browser (Chrome, Firefox, Edge, Safari).

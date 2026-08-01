@@ -2,8 +2,11 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Smart Expense by M/L - Categorizer ML Client-Side</title>
+    
+    <!-- Tab Browser Favicon Logo -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='128' fill='%2316a34a'/><path fill='white' d='M184 0c-30.9 0-56 25.1-56 56V96H96c-35.3 0-64 28.7-64 64v192c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64h-32V56c0-30.9-25.1-56-56-56H184zM224 96V56c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8V96H224zm-96 96a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm256 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/></svg>">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,127 +68,129 @@
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen pb-12 transition-colors duration-200">
 
     <!-- Navigation / Header -->
-    <header class="sticky top-0 z-30 glass-card border-b border-slate-200/80 dark:border-slate-800 mb-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-emerald-200 dark:shadow-none">
+    <header class="sticky top-0 z-30 glass-card border-b border-slate-200/80 dark:border-slate-800 mb-4 sm:mb-6">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg sm:text-xl shadow-md shadow-emerald-200 dark:shadow-none flex-shrink-0">
                     <i class="fa-solid fa-brain"></i>
                 </div>
-                <div>
-                    <h1 class="font-bold text-slate-900 dark:text-white text-lg sm:text-xl leading-tight">Smart Expense by M/L</h1>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 hidden sm:block" data-i18n="subtitle">Klasifikasi Pengeluaran Otomatis • ML Client-Side</p>
+                <div class="truncate">
+                    <h1 class="font-bold text-slate-900 dark:text-white text-base sm:text-xl leading-tight truncate">Smart Expense by M/L</h1>
+                    <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 hidden sm:block" data-i18n="subtitle">Klasifikasi Pengeluaran Otomatis • ML Client-Side</p>
                 </div>
             </div>
 
-            <!-- Controls: Language, Theme & ML Info -->
-            <div class="flex items-center gap-2">
+            <!-- Controls: Currency, Language, Theme & ML Info -->
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
                 <!-- Currency Selector Dropdown -->
-                <div class="relative flex items-center">
-                    <select id="currencySelect" onchange="changeCurrency(this.value)" class="bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 text-emerald-800 dark:text-emerald-300 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-bold cursor-pointer">
-                        <option value="IDR">🇮🇩 IDR (Rp)</option>
-                        <option value="USD">🇺🇸 USD ($)</option>
+                <div class="relative">
+                    <select id="currencySelect" onchange="changeCurrency(this.value)" class="bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 text-emerald-800 dark:text-emerald-300 text-xs rounded-xl px-2 py-2 min-h-[40px] focus:outline-none focus:ring-2 focus:ring-emerald-500 font-bold cursor-pointer transition">
+                        <option value="IDR">🇮🇩 IDR</option>
+                        <option value="USD">🇺🇸 USD</option>
                     </select>
                 </div>
 
                 <!-- Language Switcher Dropdown -->
                 <div class="relative">
-                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium cursor-pointer">
+                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs rounded-xl px-2 py-2 min-h-[40px] focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium cursor-pointer transition">
                         <option value="id">🇮🇩 ID</option>
                         <option value="en">🇬🇧 EN</option>
                     </select>
                 </div>
 
                 <!-- Theme Switcher Selector -->
-                <div class="flex items-center bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-0.5 text-xs">
-                    <button onclick="setTheme('light')" id="themeBtnLight" class="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="Tema Terang">
+                <div class="flex items-center bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-0.5 text-xs min-h-[40px]">
+                    <button onclick="setTheme('light')" id="themeBtnLight" class="p-2 min-w-[32px] min-h-[32px] rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition flex items-center justify-center" title="Tema Terang">
                         <i class="fa-solid fa-sun"></i>
                     </button>
-                    <button onclick="setTheme('dark')" id="themeBtnDark" class="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="Tema Gelap">
+                    <button onclick="setTheme('dark')" id="themeBtnDark" class="p-2 min-w-[32px] min-h-[32px] rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition flex items-center justify-center" title="Tema Gelap">
                         <i class="fa-solid fa-moon"></i>
                     </button>
-                    <button onclick="setTheme('system')" id="themeBtnSystem" class="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="Sistem">
+                    <button onclick="setTheme('system')" id="themeBtnSystem" class="p-2 min-w-[32px] min-h-[32px] rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition flex items-center justify-center" title="Sistem">
                         <i class="fa-solid fa-desktop"></i>
                     </button>
                 </div>
 
                 <!-- ML Modal Button -->
-                <button onclick="toggleMLModal()" class="text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 p-2 rounded-xl text-sm transition font-medium flex items-center gap-1 border border-slate-200 dark:border-slate-700" title="Cara Kerja ML">
+                <button onclick="toggleMLModal()" class="text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 p-2 min-h-[40px] rounded-xl text-xs sm:text-sm transition font-medium flex items-center justify-center gap-1 border border-slate-200 dark:border-slate-700" title="Cara Kerja ML">
                     <i class="fa-solid fa-circle-info"></i>
-                    <span class="hidden md:inline" data-i18n="howItWorksBtn">Cara Kerja ML</span>
+                    <span class="hidden lg:inline" data-i18n="howItWorksBtn">Cara Kerja ML</span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 space-y-5 sm:space-y-6">
 
-        <!-- Natural Language Input Card -->
-        <section class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-700/80 relative overflow-hidden transition-colors">
+        <!-- Natural Language Input Card (Refined & Cleaned Up) -->
+        <section class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200/80 dark:border-slate-700/80 relative overflow-hidden transition-colors space-y-4">
             <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none"></div>
 
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                <div>
-                    <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <i class="fa-solid fa-wand-magic-sparkles text-emerald-600 dark:text-emerald-400"></i>
-                        <span data-i18n="inputTitle">Catat Transaksi Serba Praktis</span>
-                    </h2>
-                    <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="inputSubtitle">Tulis kalimat bebas atau gunakan suara. AI akan mendeteksi nominal & kategori otomatis!</p>
+            <!-- Card Header & Live FX Badge -->
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-700/60 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </span>
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white" data-i18n="inputTitle">Catat Transaksi Serba Praktis</h2>
                 </div>
 
                 <!-- Live Exchange Rate Indicator Badge -->
-                <div id="fxRateBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-900/80 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 self-start md:self-auto">
+                <div id="fxRateBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span id="fxRateText">1 USD = Rp --</span>
-                    <button onclick="fetchExchangeRate(true)" class="hover:text-emerald-600 dark:hover:text-emerald-400 ml-1" title="Refresh Kurs">
+                    <button onclick="fetchExchangeRate(true)" class="hover:text-emerald-600 dark:hover:text-emerald-400 ml-1 p-0.5" title="Refresh Kurs">
                         <i class="fa-solid fa-rotate-right text-[10px]"></i>
                     </button>
                 </div>
-
-                <!-- Presets for fast testing -->
-                <div class="flex flex-wrap items-center gap-1.5 mt-2 md:mt-0" id="presetContainer">
-                    <span class="text-xs text-slate-400 font-medium mr-1" data-i18n="tryPresets">Coba contoh:</span>
-                    <!-- Dynamic Presets Injected by JS -->
-                </div>
             </div>
 
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="inputSubtitle">Tulis kalimat bebas atau gunakan suara. AI akan mendeteksi nominal & kategori otomatis!</p>
+
             <!-- Input Box -->
-            <form id="expenseForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div class="relative">
+            <form id="expenseForm" onsubmit="handleFormSubmit(event)" class="space-y-3">
+                <div class="relative flex items-center">
                     <input type="text" id="rawInput" 
                         placeholder="Contoh: Makan siang nasi padang 25rb atau Transfer listrik 150rb..." 
-                        class="w-full text-base sm:text-lg pl-4 pr-24 py-3.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition shadow-sm"
+                        class="w-full text-sm sm:text-base pl-3.5 pr-28 py-3.5 min-h-[50px] rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition shadow-sm"
                         oninput="liveAnalyzeInput()" 
                         required autocomplete="off">
                     
-                    <div class="absolute right-2 top-2 flex items-center gap-1">
+                    <div class="absolute right-1.5 flex items-center gap-1">
                         <!-- Voice Input Button -->
                         <button type="button" id="micBtn" onclick="toggleVoiceInput()" 
-                            class="p-2.5 text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-slate-800 rounded-lg transition" 
+                            class="p-2.5 text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-slate-800 rounded-lg transition min-w-[42px] min-h-[42px] flex items-center justify-center" 
                             title="Bicara (Voice Input)">
-                            <i class="fa-solid fa-microphone text-lg"></i>
+                            <i class="fa-solid fa-microphone text-base sm:text-lg"></i>
                         </button>
                         <!-- Submit Button -->
                         <button type="submit" 
-                            class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-lg transition shadow-sm hover:shadow flex items-center gap-1">
-                            <i class="fa-solid fa-plus text-sm"></i>
+                            class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-3.5 py-2.5 min-h-[42px] rounded-lg transition shadow-sm hover:shadow flex items-center justify-center gap-1 text-xs sm:text-sm">
+                            <i class="fa-solid fa-plus"></i>
                             <span class="hidden sm:inline" data-i18n="saveBtn">Simpan</span>
                         </button>
                     </div>
                 </div>
 
+                <!-- Presets / Example Quick Chips (Cleaned & Wrapped) -->
+                <div class="flex flex-wrap items-center gap-1.5 pt-1" id="presetContainer">
+                    <span class="text-xs text-slate-400 font-medium mr-1" data-i18n="tryPresets">Coba contoh:</span>
+                    <!-- Dynamic Presets Injected by JS -->
+                </div>
+
                 <!-- Live ML Prediction Result Preview -->
-                <div id="predictionPreview" class="hidden bg-slate-50 dark:bg-slate-900/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3 text-sm">
+                <div id="predictionPreview" class="hidden bg-slate-50 dark:bg-slate-900/80 rounded-xl p-3 sm:p-4 border border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
                     <div class="flex items-center gap-3">
-                        <div id="predCategoryIcon" class="w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-bold">
+                        <div id="predCategoryIcon" class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-bold text-base flex-shrink-0">
                             <i class="fa-solid fa-tag"></i>
                         </div>
                         <div>
                             <div class="flex items-center gap-2">
                                 <span class="font-bold text-slate-800 dark:text-slate-100" id="predItemName">Item Transaksi</span>
-                                <span id="predTypeBadge" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-400">Pengeluaran</span>
+                                <span id="predTypeBadge" class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-400">Pengeluaran</span>
                             </div>
-                            <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2 mt-0.5">
+                            <div class="text-xs text-slate-500 dark:text-slate-400 flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-0.5">
                                 <span><span data-i18n="categoryLabel">Kategori</span>: <strong id="predCategoryName" class="text-slate-700 dark:text-slate-200">Makanan</strong></span>
                                 <span>•</span>
                                 <span><span data-i18n="mlAccuracyLabel">Akurasi ML</span>: <strong id="predConfidence" class="text-emerald-600 dark:text-emerald-400">95%</strong></span>
@@ -193,17 +198,15 @@
                         </div>
                     </div>
                     <div class="text-right">
-                        <span class="text-xs text-slate-400 block" data-i18n="detectedAmountLabel">Nominal Terdeteksi</span>
-                        <span id="predAmount" class="font-extrabold text-slate-900 dark:text-white text-base">Rp 0</span>
+                        <span class="text-[11px] text-slate-400 block" data-i18n="detectedAmountLabel">Nominal Terdeteksi</span>
+                        <span id="predAmount" class="font-extrabold text-slate-900 dark:text-white text-base sm:text-lg">Rp 0</span>
                     </div>
                 </div>
             </form>
         </section>
 
         <!-- Key Metrics Cards -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <!-- Balance Card -->
-            <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm flex items-center justify-between transition-colors">
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider" data-i18n="statNetBalance">Total Saldo Netto</p>
                     <h3 id="statNetBalance" class="text-2xl font-black text-slate-900 dark:text-white mt-1">Rp 0</h3>
@@ -288,9 +291,9 @@
         <!-- Transaction Table & History -->
         <section class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm overflow-hidden transition-colors">
             <!-- Table Header Bar -->
-            <div class="p-5 border-b border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="p-4 sm:p-5 border-b border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                    <h3 class="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
                         <i class="fa-solid fa-list-check text-emerald-600 dark:text-emerald-400"></i>
                         <span data-i18n="tableTitle">Riwayat Transaksi & Koreksi ML</span>
                     </h3>
@@ -299,12 +302,12 @@
 
                 <div class="flex items-center gap-2">
                     <!-- Search Input -->
-                    <div class="relative">
-                        <input type="text" id="searchTable" oninput="renderTable()" placeholder="Cari..." class="text-xs pl-8 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500">
-                        <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
+                    <div class="relative flex-1 sm:flex-initial">
+                        <input type="text" id="searchTable" oninput="renderTable()" placeholder="Cari..." class="w-full text-xs pl-8 pr-3 py-2 min-h-[38px] rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500">
+                        <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-3 text-slate-400 text-xs"></i>
                     </div>
                     <!-- Export CSV Button -->
-                    <button onclick="exportCSV()" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 px-3 py-2 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 border border-slate-200 dark:border-slate-600">
+                    <button onclick="exportCSV()" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 px-3 py-2 min-h-[38px] rounded-lg text-xs font-semibold transition flex items-center gap-1.5 border border-slate-200 dark:border-slate-600 flex-shrink-0">
                         <i class="fa-solid fa-file-csv text-slate-500 dark:text-slate-400"></i>
                         <span class="hidden sm:inline" data-i18n="exportBtn">Ekspor CSV</span>
                     </button>
@@ -313,14 +316,14 @@
 
             <!-- Table Container -->
             <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm text-slate-600 dark:text-slate-300">
-                    <thead class="bg-slate-50 dark:bg-slate-900/50 text-slate-500 dark:text-slate-400 uppercase text-xs tracking-wider border-b border-slate-200 dark:border-slate-700">
+                <table class="w-full text-left text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                    <thead class="bg-slate-50 dark:bg-slate-900/50 text-slate-500 dark:text-slate-400 uppercase text-[11px] tracking-wider border-b border-slate-200 dark:border-slate-700 whitespace-nowrap">
                         <tr>
-                            <th class="py-3 px-4" data-i18n="thDescription">Tanggal & Deskripsi</th>
-                            <th class="py-3 px-4" data-i18n="thAmount">Nominal</th>
-                            <th class="py-3 px-4" data-i18n="thCategory">Kategori Deteksi AI</th>
-                            <th class="py-3 px-4 text-center" data-i18n="thType">Tipe</th>
-                            <th class="py-3 px-4 text-right" data-i18n="thAction">Aksi</th>
+                            <th class="py-3 px-3 sm:px-4" data-i18n="thDescription">Tanggal & Deskripsi</th>
+                            <th class="py-3 px-3 sm:px-4" data-i18n="thAmount">Nominal</th>
+                            <th class="py-3 px-3 sm:px-4" data-i18n="thCategory">Kategori Deteksi AI</th>
+                            <th class="py-3 px-3 sm:px-4 text-center" data-i18n="thType">Tipe</th>
+                            <th class="py-3 px-3 sm:px-4 text-right" data-i18n="thAction">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="transactionList" class="divide-y divide-slate-100 dark:divide-slate-700/60">
@@ -332,7 +335,7 @@
             <!-- Empty State -->
             <div id="emptyState" class="p-8 text-center text-slate-400 dark:text-slate-500">
                 <i class="fa-solid fa-receipt text-4xl mb-2 text-slate-300 dark:text-slate-600"></i>
-                <p class="text-sm" data-i18n="emptyStateText">Belum ada transaksi recorded. Tulis transaksi pertamamu di atas!</p>
+                <p class="text-xs sm:text-sm" data-i18n="emptyStateText">Belum ada transaksi recorded. Tulis transaksi pertamamu di atas!</p>
             </div>
         </section>
     </main>
@@ -941,7 +944,7 @@
 
             container.innerHTML = `<span class="text-xs text-slate-400 font-medium mr-1">${dict.tryPresets}</span>` + 
                 presetsList.map(p => `
-                    <button onclick="fillPreset('${escapeHtml(p.text)}')" class="text-xs bg-slate-100 dark:bg-slate-700 hover:bg-emerald-50 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 hover:text-emerald-700 px-2.5 py-1 rounded-lg transition border border-slate-200 dark:border-slate-600">
+                    <button type="button" onclick="fillPreset('${escapeHtml(p.text)}')" class="text-xs bg-slate-100 dark:bg-slate-700 hover:bg-emerald-50 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 hover:text-emerald-700 px-2.5 py-1.5 rounded-lg transition border border-slate-200 dark:border-slate-600 flex items-center gap-1 active:scale-95">
                         ${escapeHtml(p.label)}
                     </button>
                 `).join('');
