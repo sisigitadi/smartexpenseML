@@ -3,12 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Expense by M/L</title>
+    <title>Smart Expense by M/L - Catat Keuangan Otomatis dengan ML</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="Smart Expense by M/L - Catat Keuangan Otomatis dengan ML">
+    <meta name="description" content="Aplikasi pencatat pengeluaran & pemasukan otomatis berbasis Machine Learning 100% Client-Side. Cepat, privat, tanpa API Key, mendukung input suara & kurs real-time.">
+    <meta name="keywords" content="smart expense, machine learning, client-side ml, naive bayes, expense tracker, catat keuangan, nlp indonesia, open source, github pages, sigit adi">
+    <meta name="author" content="Sigit Adi">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#10b981">
+    <link rel="canonical" href="https://sisigitadi.github.io/smartexpenseML/">
+
+    <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sisigitadi.github.io/smartexpenseML/">
+    <meta property="og:site_name" content="Smart Expense by M/L">
+    <meta property="og:title" content="Smart Expense by M/L - Catat Keuangan Otomatis dengan ML">
+    <meta property="og:description" content="Aplikasi pencatat pengeluaran & pemasukan otomatis berbasis Machine Learning 100% Client-Side. Cepat, privat, tanpa API Key, mendukung input suara & kurs real-time.">
+    <meta property="og:image" content="https://placehold.co/1200x630/10b981/ffffff.png?text=Smart+Expense+by+M%2FL+%7C+Client-Side+ML">
+    <meta property="og:image:secure_url" content="https://placehold.co/1200x630/10b981/ffffff.png?text=Smart+Expense+by+M%2FL+%7C+Client-Side+ML">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Smart Expense by M/L Preview Card">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter / X Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sisigitadi.github.io/smartexpenseML/">
+    <meta name="twitter:title" content="Smart Expense by M/L - Catat Keuangan Otomatis dengan ML">
+    <meta name="twitter:description" content="Aplikasi pencatat pengeluaran & pemasukan otomatis berbasis Machine Learning 100% Client-Side. Cepat, privat, tanpa API Key, mendukung input suara & kurs real-time.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/10b981/ffffff.png?text=Smart+Expense+by+M%2FL+%7C+Client-Side+ML">
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Smart Expense by M/L",
+      "url": "https://sisigitadi.github.io/smartexpenseML/",
+      "description": "Automated expense classification using client-side Machine Learning NLP.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "author": {
+        "@type": "Person",
+        "name": "Sigit Adi",
+        "url": "https://github.com/sisigitadi"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
     
     <!-- Embedded SVG Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%2310b981' d='M184 0c-30.9 0-56 25.1-56 56V96H96C43 96 0 139 0 192V384c0 35.3 28.7 64 64 64h32v8c0 13.3 10.7 24 24 24s24-10.7 24-24v-8h224v8c0 13.3 10.7 24 24 24s24-10.7 24-24v-8h32c35.3 0 64-28.7 64-64V192c0-53-43-96-96-96H384V56c0-30.9-25.1-56-56-56H184zM184 48h144c4.4 0 8 3.6 8 8v40H176V56c0-4.4 3.6-8 8-8zM96 144H416c26.5 0 48 21.5 48 48v48H48V192c0-26.5 21.5-48 48-48zm320 144v96c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V288H416z'/></svg>">
 
-    <!-- Tailwind CSS Pre-Config & CDN -->
+    <!-- Tailwind CSS CDN & Config -->
     <script>
         window.tailwind = {
             darkMode: 'class',
@@ -34,7 +88,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        /* Custom Smooth Transitions */
         * { transition: background-color 0.2s ease, border-color 0.2s ease; }
         .glass-panel {
             background: rgba(255, 255, 255, 0.85);
@@ -44,17 +97,19 @@
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(12px);
         }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.5); border-radius: 9999px; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-full flex flex-col font-sans antialiased">
 
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-30 border-b border-slate-200/80 dark:border-slate-800/80 glass-panel">
+    <header class="sticky top-0 z-30 border-b border-slate-200/80 dark:border-slate-800/80 glass-panel" role="banner">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-2 sm:gap-4">
             
-            <!-- App Logo & Title -->
+            <!-- Logo & Title -->
             <div class="flex items-center gap-2.5 min-w-0">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-md shadow-emerald-500/20 shrink-0">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-md shadow-emerald-500/20 shrink-0" aria-hidden="true">
                     <i class="fa-solid fa-brain"></i>
                 </div>
                 <div class="truncate">
@@ -65,29 +120,29 @@
                 </div>
             </div>
 
-            <!-- Top Controls (FX Badge, Language, ML Modal) -->
+            <!-- Header Controls -->
             <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <!-- FX Rate Pill -->
-                <div id="fxRatePill" class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-mono">
-                    <i class="fa-solid fa-coins text-amber-500"></i>
+                <div id="fxRatePill" class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-mono" title="Live Exchange Rate">
+                    <i class="fa-solid fa-coins text-amber-500" aria-hidden="true"></i>
                     <span id="fxRateText">1 USD = Rp --</span>
                 </div>
 
-                <!-- Currency Selector -->
-                <select id="currencySelect" onchange="changeCurrency(this.value)" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer">
+                <!-- Currency Switcher -->
+                <select id="currencySelect" onchange="changeCurrency(this.value)" aria-label="Select Currency" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer min-h-[36px]">
                     <option value="IDR">Rp</option>
                     <option value="USD">$</option>
                 </select>
 
-                <!-- Language Selector -->
-                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer">
+                <!-- Language Switcher -->
+                <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Select Language" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer min-h-[36px]">
                     <option value="id">ID</option>
                     <option value="en">EN</option>
                 </select>
 
-                <!-- How ML Works Button -->
-                <button onclick="toggleModal(true)" class="p-1.5 sm:px-3 sm:py-1.5 text-xs font-medium rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5 transition" title="Cara Kerja ML">
-                    <i class="fa-solid fa-circle-info text-sm"></i>
+                <!-- ML Info Modal Button -->
+                <button onclick="toggleModal(true)" aria-label="How ML Works Info Modal" class="p-2 sm:px-3 sm:py-1.5 text-xs font-medium rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5 transition min-h-[36px]" title="Cara Kerja ML">
+                    <i class="fa-solid fa-circle-info text-sm" aria-hidden="true"></i>
                     <span class="hidden sm:inline" data-i18n="howItWorksBtn">Cara Kerja ML</span>
                 </button>
             </div>
@@ -95,11 +150,11 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6" role="main">
         
-        <!-- Input & AI NLP Card -->
+        <!-- Transaction Input Section -->
         <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200/80 dark:border-slate-800 relative overflow-hidden">
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
             
             <div class="mb-4">
                 <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2" data-i18n="inputTitle">
@@ -110,27 +165,27 @@
                 </p>
             </div>
 
-            <!-- Input Box & Buttons -->
+            <!-- Form & Controls -->
             <form id="txForm" onsubmit="handleFormSubmit(event)" class="space-y-3">
                 <div class="relative flex items-center">
-                    <input type="text" id="txInput" oninput="handleLiveNLP()" autocomplete="off"
-                           class="w-full pl-4 pr-24 py-3.5 text-sm sm:text-base rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
+                    <input type="text" id="txInput" oninput="handleLiveNLP()" autocomplete="off" aria-label="Transaction description input"
+                           class="w-full pl-4 pr-24 py-3.5 text-sm sm:text-base rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium min-h-[48px]"
                            placeholder="Contoh: Beli kopi latte 25rb atau Transfer listrik 150rb..." data-i18n-placeholder="inputPlaceholder">
                     
                     <div class="absolute right-2 flex items-center gap-1.5">
-                        <button type="button" onclick="startVoiceInput()" id="micBtn" 
-                                class="w-9 h-9 rounded-lg bg-slate-200/60 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-white flex items-center justify-center transition" title="Voice Input">
-                            <i class="fa-solid fa-microphone text-sm"></i>
+                        <button type="button" onclick="startVoiceInput()" id="micBtn" aria-label="Voice Input"
+                                class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-slate-200/60 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-white flex items-center justify-center transition min-h-[40px] min-w-[40px]" title="Voice Input">
+                            <i class="fa-solid fa-microphone text-sm" aria-hidden="true"></i>
                         </button>
-                        <button type="submit" 
-                                class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm rounded-lg shadow-sm shadow-emerald-600/30 flex items-center gap-1.5 transition">
-                            <i class="fa-solid fa-plus text-xs"></i>
+                        <button type="submit" aria-label="Save transaction"
+                                class="px-3.5 py-2 sm:px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm rounded-lg shadow-sm shadow-emerald-600/30 flex items-center gap-1.5 transition min-h-[40px]">
+                            <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
                             <span data-i18n="saveBtn">Simpan</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Live NLP Preview Card -->
+                <!-- Live NLP AI Detection Preview -->
                 <div id="nlpPreview" class="hidden p-3 rounded-xl bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 text-xs">
                     <div class="flex items-center gap-2">
                         <span class="font-semibold text-slate-500 dark:text-slate-400" data-i18n="categoryLabel">Kategori:</span>
@@ -152,65 +207,65 @@
                     </div>
                 </div>
 
-                <!-- Quick Try Presets -->
+                <!-- Preset Chips -->
                 <div class="pt-2 flex flex-wrap items-center gap-2 text-xs">
                     <span class="text-slate-400 font-medium" data-i18n="tryPresets">Coba contoh:</span>
                     <div id="presetChips" class="flex flex-wrap gap-1.5">
-                        <!-- Rendered by JS -->
+                        <!-- Dynamic Presets -->
                     </div>
                 </div>
             </form>
         </section>
 
-        <!-- Metrics Stats Cards -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <!-- Net Balance -->
+        <!-- Financial Metrics Stats Grid -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" aria-label="Financial Summary Cards">
+            <!-- Net Balance Card -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400" data-i18n="statNetBalance">Total Saldo Netto</p>
                     <h3 id="statNetBalance" class="text-lg sm:text-xl font-bold font-mono text-slate-900 dark:text-white mt-1">Rp 0</h3>
                 </div>
-                <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-base">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-base shrink-0" aria-hidden="true">
                     <i class="fa-solid fa-wallet"></i>
                 </div>
             </div>
 
-            <!-- Total Expenses -->
+            <!-- Total Expenses Card -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400" data-i18n="statTotalExpense">Total Pengeluaran</p>
                     <h3 id="statExpense" class="text-lg sm:text-xl font-bold font-mono text-rose-600 dark:text-rose-400 mt-1">Rp 0</h3>
                 </div>
-                <div class="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold text-base">
+                <div class="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold text-base shrink-0" aria-hidden="true">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>
 
-            <!-- Total Income -->
+            <!-- Total Income Card -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400" data-i18n="statTotalIncome">Total Pemasukan</p>
                     <h3 id="statIncome" class="text-lg sm:text-xl font-bold font-mono text-emerald-600 dark:text-emerald-400 mt-1">Rp 0</h3>
                 </div>
-                <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-base">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-base shrink-0" aria-hidden="true">
                     <i class="fa-solid fa-arrow-down-left-and-arrow-up-right-to-inside"></i>
                 </div>
             </div>
 
-            <!-- ML Corpus Count -->
+            <!-- ML Corpus Count Card -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400" data-i18n="statMLCount">Dataset / Memori ML</p>
                     <h3 id="statMLCount" class="text-lg sm:text-xl font-bold font-mono text-purple-600 dark:text-purple-400 mt-1">1,000+ Kata</h3>
                 </div>
-                <div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-base">
+                <div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-base shrink-0" aria-hidden="true">
                     <i class="fa-solid fa-database"></i>
                 </div>
             </div>
         </section>
 
         <!-- Visual Analytics Grid -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6" aria-label="Visual Financial Analytics">
             <!-- Doughnut Expense Breakdown -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between">
                 <div class="flex items-center justify-between mb-4">
@@ -219,7 +274,7 @@
                     </h3>
                 </div>
                 <div class="relative w-full h-64 flex items-center justify-center">
-                    <canvas id="chartDoughnut"></canvas>
+                    <canvas id="chartDoughnut" aria-label="Chart showing expense proportion by category" role="img"></canvas>
                 </div>
                 <p class="text-xs text-slate-400 text-center mt-3" data-i18n="chartDoughnutFooter">Diolah otomatis oleh ML berdasarkan kata kunci</p>
             </div>
@@ -232,7 +287,7 @@
                     </h3>
                 </div>
                 <div class="relative w-full h-64">
-                    <canvas id="chartBar"></canvas>
+                    <canvas id="chartBar" aria-label="Chart showing top categories by expense" role="img"></canvas>
                 </div>
                 <p class="text-xs text-slate-400 text-center mt-3" data-i18n="chartBarFooter">*Grafik memperlihatkan pengeluaran terbanyak per kategori.</p>
             </div>
@@ -252,16 +307,16 @@
 
                 <!-- Table Controls -->
                 <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-                    <input type="text" id="searchInput" oninput="renderTable()" 
+                    <input type="text" id="searchInput" oninput="renderTable()" aria-label="Search transaction history"
                            placeholder="Cari..." data-i18n-placeholder="searchPlaceholder"
-                           class="px-3 py-1.5 text-xs rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full sm:w-40">
+                           class="px-3 py-1.5 text-xs rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full sm:w-40 min-h-[36px]">
                     
-                    <button onclick="exportCSV()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 flex items-center gap-1.5 transition">
-                        <i class="fa-solid fa-file-csv text-emerald-600"></i>
+                    <button onclick="exportCSV()" aria-label="Export transaction data to CSV" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 flex items-center gap-1.5 transition min-h-[36px]">
+                        <i class="fa-solid fa-file-csv text-emerald-600" aria-hidden="true"></i>
                         <span data-i18n="exportBtn">Ekspor CSV</span>
                     </button>
 
-                    <button onclick="resetData()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-900 transition" data-i18n="resetDataBtn">
+                    <button onclick="promptResetData()" aria-label="Reset all stored data" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-900 transition min-h-[36px]" data-i18n="resetDataBtn">
                         Reset Data
                     </button>
                 </div>
@@ -280,7 +335,7 @@
                         </tr>
                     </thead>
                     <tbody id="txTableBody" class="divide-y divide-slate-200 dark:divide-slate-800">
-                        <!-- Rendered by JS -->
+                        <!-- Dynamic Rows -->
                     </tbody>
                 </table>
             </div>
@@ -288,14 +343,14 @@
     </main>
 
     <!-- How ML Works Modal -->
-    <div id="mlModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm">
+    <div id="mlModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm">
         <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4 max-h-[90vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
-                <h3 class="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2" data-i18n="modalTitle">
+                <h3 id="modalTitle" class="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2" data-i18n="modalTitle">
                     Bagaimana Machine Learning Ini Bekerja?
                 </h3>
-                <button onclick="toggleModal(false)" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg">
-                    <i class="fa-solid fa-xmark"></i>
+                <button onclick="toggleModal(false)" aria-label="Close modal" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg p-1">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
                 </button>
             </div>
 
@@ -331,52 +386,86 @@
                 <div class="pt-2">
                     <h4 class="font-bold text-slate-900 dark:text-white mb-2" data-i18n="modalLexiconTitle">Sampel Memori Kata ML Aktif:</h4>
                     <div id="modalLexiconTags" class="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-2 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 font-mono text-[11px]">
-                        <!-- Rendered by JS -->
+                        <!-- Dynamic Memory Tags -->
                     </div>
                 </div>
             </div>
 
             <div class="pt-3 border-t border-slate-200 dark:border-slate-800 text-right">
-                <button onclick="toggleModal(false)" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold" data-i18n="modalCloseBtn">
+                <button onclick="toggleModal(false)" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold min-h-[36px]" data-i18n="modalCloseBtn">
                     Tutup Penjelasan
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- Reset Confirmation Custom Dialog Modal -->
+    <div id="resetConfirmModal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4 text-center">
+            <div class="w-12 h-12 rounded-full bg-rose-100 dark:bg-rose-950/80 text-rose-600 dark:text-rose-400 flex items-center justify-center mx-auto text-xl">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div>
+                <h3 class="font-bold text-base text-slate-900 dark:text-white">Reset Semua Data?</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Semua transaksi dan pembelajaran ML lokal akan dikembalikan ke kondisi awal.
+                </p>
+            </div>
+            <div class="flex items-center justify-center gap-3 pt-2">
+                <button onclick="toggleResetModal(false)" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                    Batal
+                </button>
+                <button onclick="executeResetData()" class="px-4 py-2 rounded-lg bg-rose-600 text-white text-xs font-semibold hover:bg-rose-700 shadow-sm transition">
+                    Ya, Reset
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-200/80 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 w-full">
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-200/80 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 w-full" role="contentinfo">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8">
             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <div class="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
+                <div class="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0" aria-hidden="true">
                     <i class="fa-solid fa-brain"></i>
                 </div>
                 <span class="font-bold text-slate-700 dark:text-slate-200">Smart Expense by M/L</span>
                 <span class="hidden sm:inline">•</span>
-                <span>© 2026 <span data-i18n="footerCrafted">Dibuat dengan</span> <i class="fa-solid fa-heart text-red-500 text-[10px]"></i> <span data-i18n="footerBy">oleh</span> <a href="https://github.com/sisigitadi" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 underline decoration-emerald-500/30 transition">Sigit Adi</a></span>
+                <span>© 2026 <span data-i18n="footerCrafted">Dibuat dengan</span> <i class="fa-solid fa-heart text-red-500 text-[10px]" aria-hidden="true"></i> <span data-i18n="footerBy">oleh</span> <a href="https://github.com/sisigitadi" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 underline decoration-emerald-500/30 transition">Sigit Adi</a></span>
             </div>
 
-            <!-- Social Links -->
+            <!-- Social Media & Contact Links -->
             <div class="flex items-center gap-4 text-lg">
-                <a href="https://github.com/sisigitadi" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="GitHub Profile">
-                    <i class="fa-brands fa-github"></i>
+                <a href="https://github.com/sisigitadi" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="GitHub Profile">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/sigitadi/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="LinkedIn Profile">
-                    <i class="fa-brands fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/sigitadi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                 </a>
-                <a href="mailto:sisigitadi@gmail.com" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="Gmail / Email">
-                    <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:sisigitadi@gmail.com" aria-label="Email Contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="Gmail / Email">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
     </footer>
 
     <!-- Toast Notification Container -->
-    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none" aria-live="polite"></div>
 
     <!-- Application Logic Script -->
     <script>
-        /* Multi-Language Dictionary */
+        /* Security HTML Sanitizer Helper */
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        /* Localization Dictionaries */
         const TRANSLATIONS = {
             id: {
                 subtitle: "Klasifikasi Pengeluaran Otomatis • ML Client-Side",
@@ -486,7 +575,7 @@
             }
         };
 
-        /* Category Localization Map */
+        /* Categories Registry */
         const CATEGORIES = {
             food: { id: "Makanan & Minuman", en: "Food & Drinks", color: "#f59e0b" },
             transport: { id: "Transportasi", en: "Transportation", color: "#3b82f6" },
@@ -498,7 +587,7 @@
             other: { id: "Lain-Lain", en: "Others", color: "#64748b" }
         };
 
-        /* Massive Seed Corpus (>1000 Tokens Pattern) */
+        /* Large Seed Corpus (>1000 Token Patterns) */
         const INITIAL_CORPUS = {
             food: ["kopi", "coffee", "latte", "cappuccino", "espresso", "nasi", "goreng", "padang", "sate", "bakso", "seblak", "mie", "ramen", "sushi", "makan", "siang", "malam", "sarapan", "food", "lunch", "dinner", "snack", "roti", "bakery", "martabak", "pizza", "burger", "mcd", "kfc", "starbucks", "boba", "teh", "jus", "gofood", "grabfood", "shopeefood", "resto", "warung", "café", "cafe", "ayce", "pempek", "dimsum", "ayam", "bebek", "soto", "sotoayam", "rendang"],
             transport: ["bensin", "pertalite", "pertamax", "solar", "shell", "fuel", "gas", "gojek", "goride", "gocar", "grab", "grabbike", "grabcar", "maxim", "indriver", "ojek", "taksi", "taxi", "e-toll", "etoll", "e-money", "flazz", "parkir", "parking", "kereta", "krl", "mrt", "lrt", "bus", "busway", "transjakarta", "angkot", "tiket", "flight", "pesawat", "garuda", "lion", "airasia", "service", "oli", "ban", "cuci"],
@@ -509,7 +598,7 @@
             income: ["gaji", "salary", "paycheck", "thr", "bonus", "freelance", "proyek", "project", "omset", "penjualan", "jual", "profit", "deviden", "investasi", "crypto", "cashback", "refund", "transfer", "kiriman"]
         };
 
-        /* Sample Presets */
+        /* Preset Examples */
         const PRESETS = {
             id: [
                 { text: "Beli Kopi Latte 25rb", desc: "Kopi Latte 25rb" },
@@ -525,16 +614,16 @@
             ]
         };
 
-        /* System State Variables */
+        /* Application State */
         let currentLang = localStorage.getItem('se_lang') || 'id';
         let currentCurrency = localStorage.getItem('se_curr') || 'IDR';
-        let usdToIdrRate = 16250; // Fallback rate
+        let usdToIdrRate = 16250;
         let transactions = [];
         let mlModel = {};
         let chartDoughnut = null;
         let chartBar = null;
 
-        /* Fetch Live FX Rate */
+        /* Fetch Real-time Currency Rate */
         async function fetchExchangeRate() {
             try {
                 const res = await fetch('https://open.er-api.com/v6/latest/USD');
@@ -544,12 +633,11 @@
                     document.getElementById('fxRateText').innerText = `1 USD = Rp ${Math.round(usdToIdrRate).toLocaleString('id-ID')}`;
                 }
             } catch (err) {
-                console.log('Using fallback FX rate:', usdToIdrRate);
                 document.getElementById('fxRateText').innerText = `1 USD = Rp ${Math.round(usdToIdrRate).toLocaleString('id-ID')}`;
             }
         }
 
-        /* Initializing local ML Model */
+        /* ML Model Initialization */
         function initMLModel() {
             const saved = localStorage.getItem('se_ml_model');
             if (saved) {
@@ -571,16 +659,14 @@
             localStorage.setItem('se_ml_model', JSON.stringify(mlModel));
         }
 
-        /* RegEx NLP Extractor */
+        /* RegEx Natural Language Parser */
         function parseNaturalLanguageInput(text) {
-            if (!text || text.trim() === '') return { text: '', amountInIdr: 0, rawAmount: 0 };
+            if (!text || text.trim() === '') return { text: '', amountInIdr: 0 };
 
             let textClean = text.toLowerCase();
             let detectedAmountInIdr = 0;
 
-            // Matches $50, $4.5
             const usdMatch = textClean.match(/\$\s*(\d+(?:\.\d+)?)/);
-            // Matches 15rb, 50k, 2.5jt, 100ribu, 50000
             const idrMatch = textClean.match(/(\d+(?:[\.,]\d+)?)\s*(rb|ribu|k|jt|juta)?/i);
 
             if (usdMatch) {
@@ -602,7 +688,7 @@
             };
         }
 
-        /* Naive Bayes Classifier */
+        /* Naive Bayes Categorizer */
         function classifyTextNaiveBayes(text) {
             if (!text) return { category: 'other', confidence: 0 };
 
@@ -638,7 +724,7 @@
             return { category: bestCat, confidence: matchedWords > 0 ? Math.max(confidence, 65) : 30 };
         }
 
-        /* ML Feedback Loop Retraining */
+        /* Active Retraining */
         function retrainMLModel(description, newCategory) {
             const tokens = description.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/);
             tokens.forEach(token => {
@@ -651,7 +737,7 @@
             updateCorpusCount();
         }
 
-        /* Currency Formatter */
+        /* Currency Format Helper */
         function formatCurrency(amountInIdr) {
             if (currentCurrency === 'USD') {
                 const usd = amountInIdr / usdToIdrRate;
@@ -661,7 +747,7 @@
             }
         }
 
-        /* Live Input Handler */
+        /* Live Input Listener */
         function handleLiveNLP() {
             const inputVal = document.getElementById('txInput').value;
             const previewBox = document.getElementById('nlpPreview');
@@ -680,7 +766,7 @@
             document.getElementById('previewAccuracy').innerText = classified.confidence + '%';
         }
 
-        /* Form Submission */
+        /* Submit New Transaction */
         function handleFormSubmit(e) {
             e.preventDefault();
             const inputEl = document.getElementById('txInput');
@@ -710,19 +796,18 @@
             showToast(TRANSLATIONS[currentLang].toastSaved);
         }
 
-        /* Preset Chips Handler */
+        /* Quick Preset Filler */
         function selectPreset(text) {
             document.getElementById('txInput').value = text;
             handleLiveNLP();
         }
 
-        /* Load & Save Transactions */
+        /* Storage Handlers */
         function loadTransactions() {
             const saved = localStorage.getItem('se_txs');
             if (saved) {
                 transactions = JSON.parse(saved);
             } else {
-                // Default Initial Transactions
                 transactions = [
                     { id: 1, date: new Date().toISOString().split('T')[0], desc: currentLang === 'id' ? 'Gaji Bulanan' : 'Monthly Salary', amountInIdr: 5500000, category: 'income', type: 'income' },
                     { id: 2, date: new Date().toISOString().split('T')[0], desc: currentLang === 'id' ? 'Beli Kopi Latte 25rb' : 'Coffee Latte $4.5', amountInIdr: 25000, category: 'food', type: 'expense' },
@@ -736,7 +821,6 @@
             localStorage.setItem('se_txs', JSON.stringify(transactions));
         }
 
-        /* Render All UI Components */
         function renderAll() {
             renderTranslations();
             renderPresets();
@@ -746,7 +830,6 @@
             updateCorpusCount();
         }
 
-        /* Render Translations */
         function renderTranslations() {
             const dict = TRANSLATIONS[currentLang];
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -761,18 +844,16 @@
             document.getElementById('currencySelect').value = currentCurrency;
         }
 
-        /* Render Presets */
         function renderPresets() {
             const container = document.getElementById('presetChips');
             const list = PRESETS[currentLang];
             container.innerHTML = list.map(p => `
-                <button type="button" onclick="selectPreset('${p.text}')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-100 dark:hover:bg-emerald-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition font-medium">
-                    ${p.desc}
+                <button type="button" onclick="selectPreset('${escapeHtml(p.text)}')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-100 dark:hover:bg-emerald-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition font-medium text-xs min-h-[32px]">
+                    ${escapeHtml(p.desc)}
                 </button>
             `).join('');
         }
 
-        /* Render Statistics */
         function renderStats() {
             let totalIncome = 0;
             let totalExpense = 0;
@@ -789,7 +870,6 @@
             document.getElementById('statIncome').innerText = formatCurrency(totalIncome);
         }
 
-        /* Render Table */
         function renderTable() {
             const tbody = document.getElementById('txTableBody');
             const search = document.getElementById('searchInput').value.toLowerCase();
@@ -801,8 +881,8 @@
                 tbody.innerHTML = `
                     <tr>
                         <td colspan="5" class="p-8 text-center text-slate-400">
-                            <i class="fa-solid fa-folder-open text-2xl mb-2 block"></i>
-                            ${dict.emptyStateText}
+                            <i class="fa-solid fa-folder-open text-2xl mb-2 block" aria-hidden="true"></i>
+                            ${escapeHtml(dict.emptyStateText)}
                         </td>
                     </tr>
                 `;
@@ -812,36 +892,35 @@
             tbody.innerHTML = filtered.map(t => `
                 <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
                     <td class="p-3 sm:p-4">
-                        <div class="font-semibold text-slate-900 dark:text-white">${t.desc}</div>
-                        <div class="text-[11px] text-slate-400">${t.date}</div>
+                        <div class="font-semibold text-slate-900 dark:text-white">${escapeHtml(t.desc)}</div>
+                        <div class="text-[11px] text-slate-400">${escapeHtml(t.date)}</div>
                     </td>
                     <td class="p-3 sm:p-4 font-mono font-bold ${t.type === 'income' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-200'}">
                         ${t.type === 'income' ? '+' : '-'}${formatCurrency(t.amountInIdr)}
                     </td>
                     <td class="p-3 sm:p-4">
-                        <select onchange="updateTxCategory(${t.id}, this.value)" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <select onchange="updateTxCategory(${t.id}, this.value)" aria-label="Change category for ${escapeHtml(t.desc)}" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[32px]">
                             ${Object.keys(CATEGORIES).map(catKey => `
                                 <option value="${catKey}" ${t.category === catKey ? 'selected' : ''}>
-                                    ${CATEGORIES[catKey][currentLang]}
+                                    ${escapeHtml(CATEGORIES[catKey][currentLang])}
                                 </option>
                             `).join('')}
                         </select>
                     </td>
                     <td class="p-3 sm:p-4">
                         <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${t.type === 'income' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300' : 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300'}">
-                            ${t.type === 'income' ? dict.incomeBadge : dict.expenseBadge}
+                            ${escapeHtml(t.type === 'income' ? dict.incomeBadge : dict.expenseBadge)}
                         </span>
                     </td>
                     <td class="p-3 sm:p-4 text-center">
-                        <button onclick="deleteTx(${t.id})" class="text-slate-400 hover:text-rose-500 transition p-1" title="Delete">
-                            <i class="fa-solid fa-trash-can"></i>
+                        <button onclick="deleteTx(${t.id})" aria-label="Delete transaction" class="text-slate-400 hover:text-rose-500 transition p-2 min-h-[36px] min-w-[36px]" title="Delete">
+                            <i class="fa-solid fa-trash-can" aria-hidden="true"></i>
                         </button>
                     </td>
                 </tr>
             `).join('');
         }
 
-        /* Category Update & Retrain */
         function updateTxCategory(id, newCat) {
             const tx = transactions.find(t => t.id === id);
             if (tx) {
@@ -856,7 +935,6 @@
             }
         }
 
-        /* Delete Transaction */
         function deleteTx(id) {
             transactions = transactions.filter(t => t.id !== id);
             saveTransactions();
@@ -864,29 +942,30 @@
             showToast(TRANSLATIONS[currentLang].toastDeleted);
         }
 
-        /* Reset Data */
-        function resetData() {
-            if (confirm('Apakah Anda yakin ingin mereset semua data?')) {
-                localStorage.removeItem('se_txs');
-                localStorage.removeItem('se_ml_model');
-                initMLModel();
-                loadTransactions();
-                renderAll();
-                showToast(TRANSLATIONS[currentLang].toastCleared);
-            }
+        function promptResetData() {
+            toggleResetModal(true);
         }
 
-        /* Render Chart.js Analytics */
+        function executeResetData() {
+            toggleResetModal(false);
+            localStorage.removeItem('se_txs');
+            localStorage.removeItem('se_ml_model');
+            initMLModel();
+            loadTransactions();
+            renderAll();
+            showToast(TRANSLATIONS[currentLang].toastCleared);
+        }
+
+        function toggleResetModal(show) {
+            document.getElementById('resetConfirmModal').classList.toggle('hidden', !show);
+        }
+
         function renderCharts() {
-            if (typeof Chart === 'undefined') {
-                console.warn('Chart.js library is not loaded yet.');
-                return;
-            }
+            if (typeof Chart === 'undefined') return;
 
             const isDark = document.documentElement.classList.contains('dark');
             const textColor = isDark ? '#94a3b8' : '#64748b';
 
-            // Category Sums
             const catTotals = {};
             Object.keys(CATEGORIES).forEach(k => catTotals[k] = 0);
 
@@ -958,23 +1037,21 @@
             });
         }
 
-        /* Update Corpus Words Count */
         function updateCorpusCount() {
             const count = Object.keys(mlModel).length;
             document.getElementById('statMLCount').innerText = count + ' ' + TRANSLATIONS[currentLang].wordsLabel;
 
-            // Render Lexicon Tags in Modal
             const container = document.getElementById('modalLexiconTags');
             const sample = Object.keys(mlModel).slice(0, 35);
             container.innerHTML = sample.map(w => `
-                <span class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">${w}</span>
+                <span class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">${escapeHtml(w)}</span>
             `).join('');
         }
 
-        /* Voice Input Recognition */
+        /* Speech Recognition */
         function startVoiceInput() {
             if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-                alert('Browser Anda tidak mendukung Voice Input.');
+                showToast(currentLang === 'id' ? 'Browser tidak mendukung Input Suara' : 'Browser does not support Voice Input');
                 return;
             }
 
@@ -1002,7 +1079,7 @@
         function exportCSV() {
             let csvContent = "data:text/csv;charset=utf-8,ID,Date,Description,Amount_IDR,Category,Type\n";
             transactions.forEach(t => {
-                csvContent += `${t.id},${t.date},"${t.desc}",${t.amountInIdr},${t.category},${t.type}\n`;
+                csvContent += `${t.id},${t.date},"${t.desc.replace(/"/g, '""')}",${t.amountInIdr},${t.category},${t.type}\n`;
             });
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
@@ -1013,12 +1090,12 @@
             document.body.removeChild(link);
         }
 
-        /* Toast Popup */
+        /* Toast Notifications */
         function showToast(msg) {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = 'px-4 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-xs font-semibold shadow-xl border border-slate-700 flex items-center gap-2 pointer-events-auto transform transition duration-300 translate-y-2 opacity-0';
-            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i> ${msg}`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400" aria-hidden="true"></i> ${escapeHtml(msg)}`;
             
             container.appendChild(toast);
             setTimeout(() => {
@@ -1031,7 +1108,7 @@
             }, 3000);
         }
 
-        /* Language & Currency Switchers */
+        /* Language & Currency Handler */
         function changeLanguage(lang) {
             currentLang = lang;
             currentCurrency = lang === 'en' ? 'USD' : 'IDR';
@@ -1046,25 +1123,23 @@
             renderAll();
         }
 
-        /* Modal Toggle */
         function toggleModal(show) {
             document.getElementById('mlModal').classList.toggle('hidden', !show);
         }
 
-        /* Automatic System Theme Engine */
+        /* Automatic Theme Detection */
         function initTheme() {
             const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.classList.toggle('dark', isDark);
             renderCharts();
         }
 
-        // Listen for live system theme preference changes
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
             document.documentElement.classList.toggle('dark', e.matches);
             renderCharts();
         });
 
-        /* Initialization On Load */
+        /* Window Load Lifecycle */
         window.onload = async function() {
             initTheme();
             initMLModel();
