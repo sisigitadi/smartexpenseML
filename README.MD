@@ -49,12 +49,9 @@ Access the live application directly in your browser without any installation:
 
 1. Running Locally (No Installation Required)
 
-1. Running Locally (No Installation Required)
-
 Clone or download this repository:
 
 git clone https://github.com/sisigitadi/smartexpenseML.git
-
 
 Double-click or drag the index.html file into any web browser (Chrome, Firefox, Edge, Safari).
 
