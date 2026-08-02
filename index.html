@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="id" class="h-full">
 <head>
-    <!-- STREAMING_CHUNK:Configuring SEO meta tags and social media share previews... -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Expense by M/L - Catat Keuangan Otomatis dengan ML</title>
@@ -15,27 +14,27 @@
     <meta name="theme-color" content="#10b981">
     <link rel="canonical" href="https://sisigitadi.github.io/smartexpenseML/">
 
-    <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+    <!-- Open Graph / Facebook / WhatsApp Meta Tags (Opsi 1: Branding & Feature Focus) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sisigitadi.github.io/smartexpenseML/">
     <meta property="og:site_name" content="Smart Expense by M/L">
-    <meta property="og:title" content="Smart Expense by M/L - Catat Keuangan Otomatis dengan ML">
-    <meta property="og:description" content="Aplikasi pencatat pengeluaran & pemasukan otomatis berbasis Machine Learning 100% Client-Side. Cepat, privat, tanpa API Key, mendukung input suara & kurs real-time.">
-    <meta property="og:image" content="https://sisigitadi.github.io/smartexpenseML/preview.png?v=2">
-    <meta property="og:image:secure_url" content="https://sisigitadi.github.io/smartexpenseML/preview.png?v=2">
+    <meta property="og:title" content="Smart Expense by M/L - Automated Classification & 100% Client-Side AI">
+    <meta property="og:description" content="Aplikasi pencatat pengeluaran otomatis berbasis Machine Learning Client-Side. Tanpa API Key, privat, cepat, mendukung input suara dan kurs real-time.">
+    <meta property="og:image" content="https://sisigitadi.github.io/smartexpenseML/preview.png?v=3">
+    <meta property="og:image:secure_url" content="https://sisigitadi.github.io/smartexpenseML/preview.png?v=3">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Smart Expense by M/L Preview Card">
+    <meta property="og:image:alt" content="Smart Expense by M/L - Automated Classification & Client-Side AI Preview">
     <meta property="og:locale" content="id_ID">
     <meta property="og:locale:alternate" content="en_US">
 
     <!-- Twitter / X Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sisigitadi.github.io/smartexpenseML/">
-    <meta name="twitter:title" content="Smart Expense by M/L - Catat Keuangan Otomatis dengan ML">
-    <meta name="twitter:description" content="Aplikasi pencatat pengeluaran & pemasukan otomatis berbasis Machine Learning 100% Client-Side. Cepat, privat, tanpa API Key, mendukung input suara & kurs real-time.">
-    <meta name="twitter:image" content="https://sisigitadi.github.io/smartexpenseML/preview.png?v=2">
+    <meta name="twitter:title" content="Smart Expense by M/L - Automated Expense Tracking via Client-Side ML">
+    <meta name="twitter:description" content="Aplikasi pencatat pengeluaran otomatis berbasis Machine Learning Client-Side. Zero API Key & 100% Private.">
+    <meta name="twitter:image" content="https://sisigitadi.github.io/smartexpenseML/preview.png?v=3">
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -63,7 +62,6 @@
     <!-- Embedded SVG Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%2310b981' d='M184 0c-30.9 0-56 25.1-56 56V96H96C43 96 0 139 0 192V384c0 35.3 28.7 64 64 64h32v8c0 13.3 10.7 24 24 24s24-10.7 24-24v-8h224v8c0 13.3 10.7 24 24 24s24-10.7 24-24v-8h32c35.3 0 64-28.7 64-64V192c0-53-43-96-96-96H384V56c0-30.9-25.1-56-56-56H184zM184 48h144c4.4 0 8 3.6 8 8v40H176V56c0-4.4 3.6-8 8-8zM96 144H416c26.5 0 48 21.5 48 48v48H48V192c0-26.5 21.5-48 48-48zm320 144v96c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V288H416z'/></svg>">
 
-    <!-- STREAMING_CHUNK:Configuring Tailwind CSS theme and external libraries... -->
     <!-- Tailwind CSS CDN & Config -->
     <script>
         window.tailwind = {
@@ -105,7 +103,6 @@
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-full flex flex-col font-sans antialiased">
 
-    <!-- STREAMING_CHUNK:Rendering application navigation header... -->
     <!-- Header Navigation -->
     <header class="sticky top-0 z-30 border-b border-slate-200/80 dark:border-slate-800/80 glass-panel" role="banner">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
@@ -123,27 +120,23 @@
                 </div>
             </div>
 
-            <!-- Header Controls (Currency, Lang, Info Modal) -->
+            <!-- Header Controls -->
             <div class="flex items-center gap-1 sm:gap-2 shrink-0">
-                <!-- FX Rate Pill -->
                 <div id="fxRatePill" class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-mono" title="Live Exchange Rate">
                     <i class="fa-solid fa-coins text-amber-500" aria-hidden="true"></i>
                     <span id="fxRateText">1 USD = Rp --</span>
                 </div>
 
-                <!-- Currency Switcher -->
                 <select id="currencySelect" onchange="changeCurrency(this.value)" aria-label="Select Currency" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] sm:text-xs font-semibold rounded-lg px-1.5 py-1 sm:px-2 sm:py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer min-h-[32px] sm:min-h-[36px]">
                     <option value="IDR">Rp</option>
                     <option value="USD">$</option>
                 </select>
 
-                <!-- Language Switcher -->
                 <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Select Language" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] sm:text-xs font-semibold rounded-lg px-1.5 py-1 sm:px-2 sm:py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer min-h-[32px] sm:min-h-[36px]">
                     <option value="id">ID</option>
                     <option value="en">EN</option>
                 </select>
 
-                <!-- ML Info Modal Button -->
                 <button onclick="toggleModal(true)" aria-label="How ML Works Info Modal" class="p-1.5 sm:px-3 sm:py-1.5 text-xs font-medium rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5 transition min-h-[32px] sm:min-h-[36px]" title="Cara Kerja ML">
                     <i class="fa-solid fa-circle-info text-sm" aria-hidden="true"></i>
                     <span class="hidden sm:inline" data-i18n="howItWorksBtn">Cara Kerja ML</span>
@@ -152,7 +145,6 @@
         </div>
     </header>
 
-    <!-- STREAMING_CHUNK:Rendering main application input section with prominent ML indicators... -->
     <!-- Main Content Area -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6" role="main">
         
@@ -160,7 +152,7 @@
         <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200/80 dark:border-slate-800 relative overflow-hidden">
             <div class="absolute -right-10 -top-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
             
-            <!-- Prominent Machine Learning Feature Badge -->
+            <!-- Prominent Machine Learning Badges -->
             <div class="mb-3 flex flex-wrap items-center gap-2">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 font-bold text-xs border border-purple-200 dark:border-purple-800 shadow-sm">
                     <i class="fa-solid fa-brain text-purple-600 dark:text-purple-400 animate-pulse" aria-hidden="true"></i>
@@ -200,7 +192,7 @@
                     </div>
                 </div>
 
-                <!-- Live NLP AI Detection Preview with Algorithm Badge -->
+                <!-- Live NLP AI Preview -->
                 <div id="nlpPreview" class="hidden p-3.5 rounded-xl bg-purple-50/70 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800/60 flex flex-wrap items-center justify-between gap-3 text-xs">
                     <div class="flex items-center gap-2">
                         <span class="font-semibold text-slate-600 dark:text-slate-300" data-i18n="categoryLabel">Kategori:</span>
@@ -236,10 +228,8 @@
             </form>
         </section>
 
-        <!-- STREAMING_CHUNK:Rendering financial statistics cards... -->
-        <!-- Financial Metrics Stats Grid -->
+        <!-- Stats Grid -->
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" aria-label="Financial Summary Cards">
-            <!-- Net Balance Card -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400" data-i18n="statNetBalance">Total Saldo Netto</p>
@@ -250,7 +240,6 @@
                 </div>
             </div>
 
-            <!-- Total Expenses Card -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400" data-i18n="statTotalExpense">Total Pengeluaran</p>
@@ -261,7 +250,6 @@
                 </div>
             </div>
 
-            <!-- Total Income Card -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400" data-i18n="statTotalIncome">Total Pemasukan</p>
@@ -272,7 +260,6 @@
                 </div>
             </div>
 
-            <!-- ML Corpus Count Card -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-500 dark:text-slate-400" data-i18n="statMLCount">Dataset / Memori ML</p>
@@ -284,10 +271,8 @@
             </div>
         </section>
 
-        <!-- STREAMING_CHUNK:Rendering Chart.js data visualization panels... -->
-        <!-- Visual Analytics Grid -->
+        <!-- Charts Grid -->
         <section class="grid grid-cols-1 lg:grid-cols-2 gap-6" aria-label="Visual Financial Analytics">
-            <!-- Doughnut Expense Breakdown -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base flex items-center gap-2" data-i18n="chartDoughnutTitle">
@@ -300,7 +285,6 @@
                 <p class="text-xs text-slate-400 text-center mt-3" data-i18n="chartDoughnutFooter">Diolah otomatis oleh ML berdasarkan kata kunci</p>
             </div>
 
-            <!-- Bar Top Categories -->
             <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base flex items-center gap-2" data-i18n="chartBarTitle">
@@ -314,8 +298,7 @@
             </div>
         </section>
 
-        <!-- STREAMING_CHUNK:Rendering history table with active ML feedback... -->
-        <!-- Transaction Table Section -->
+        <!-- Table Section -->
         <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
@@ -327,7 +310,6 @@
                     </p>
                 </div>
 
-                <!-- Table Controls -->
                 <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                     <input type="text" id="searchInput" oninput="renderTable()" aria-label="Search transaction history"
                            placeholder="Cari..." data-i18n-placeholder="searchPlaceholder"
@@ -344,7 +326,6 @@
                 </div>
             </div>
 
-            <!-- Table Container -->
             <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
                 <table class="w-full text-left text-xs sm:text-sm">
                     <thead class="bg-slate-50 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold border-b border-slate-200 dark:border-slate-800">
@@ -364,7 +345,6 @@
         </section>
     </main>
 
-    <!-- STREAMING_CHUNK:Rendering How ML Works modal window... -->
     <!-- How ML Works Modal -->
     <div id="mlModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm">
         <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4 max-h-[90vh] overflow-y-auto">
@@ -445,7 +425,6 @@
         </div>
     </div>
 
-    <!-- STREAMING_CHUNK:Rendering page footer... -->
     <!-- Footer -->
     <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-200/80 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 w-full" role="contentinfo">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8">
@@ -458,7 +437,7 @@
                 <span>© 2026 <span data-i18n="footerCrafted">Dibuat dengan</span> <i class="fa-solid fa-heart text-red-500 text-[10px]" aria-hidden="true"></i> <span data-i18n="footerBy">oleh</span> <a href="https://github.com/sisigitadi" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 underline decoration-emerald-500/30 transition">Sigit Adi</a></span>
             </div>
 
-            <!-- Social Media Links -->
+            <!-- Social Links -->
             <div class="flex items-center gap-4 text-lg">
                 <a href="https://github.com/sisigitadi" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition" title="GitHub Profile">
                     <i class="fa-brands fa-github" aria-hidden="true"></i>
@@ -476,9 +455,17 @@
     <!-- Toast Notification Container -->
     <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none" aria-live="polite"></div>
 
-    <!-- STREAMING_CHUNK:Initializing JavaScript logic and Naive Bayes classifier... -->
     <!-- Application Logic Script -->
     <script>
+        /* Global State Variables Initialization */
+        let transactions = [];
+        let mlModel = {};
+        let usdToIdrRate = 16250;
+        let currentLang = localStorage.getItem('se_lang') || 'id';
+        let currentCurrency = localStorage.getItem('se_curr') || 'IDR';
+        let chartDoughnut = null;
+        let chartBar = null;
+
         /* Security HTML Sanitizer Helper */
         function escapeHtml(str) {
             if (!str) return '';
@@ -612,15 +599,29 @@
             other: { id: "Lain-Lain", en: "Others", color: "#64748b" }
         };
 
-        /* Seed Corpus (>1000 Token Patterns) */
+        /* Massive Seed Corpus (>1200 Token Patterns) */
         const INITIAL_CORPUS = {
-            food: ["kopi", "coffee", "latte", "cappuccino", "espresso", "nasi", "goreng", "padang", "sate", "bakso", "seblak", "mie", "ramen", "sushi", "makan", "siang", "malam", "sarapan", "food", "lunch", "dinner", "snack", "roti", "bakery", "martabak", "pizza", "burger", "mcd", "kfc", "starbucks", "boba", "teh", "jus", "gofood", "grabfood", "shopeefood", "resto", "warung", "café", "cafe", "ayce", "pempek", "dimsum", "ayam", "bebek", "soto", "sotoayam", "rendang", "uduk"],
-            transport: ["bensin", "pertalite", "pertamax", "solar", "shell", "fuel", "gas", "gojek", "goride", "gocar", "grab", "grabbike", "grabcar", "maxim", "indriver", "ojek", "taksi", "taxi", "e-toll", "etoll", "e-money", "flazz", "parkir", "parking", "kereta", "krl", "mrt", "lrt", "bus", "busway", "transjakarta", "angkot", "tiket", "flight", "pesawat", "garuda", "lion", "airasia", "service", "oli", "ban", "cuci"],
-            bills: ["listrik", "pln", "token", "pdam", "air", "internet", "indihome", "biznet", "firstmedia", "myrepublic", "pulsa", "kuota", "telkomsel", "xl", "tri", "smartfren", "indosat", "sewa", "kontrakan", "kos", "kpr", "cicilan", "angsuran", "asuransi", "bpjs", "pajak", "pbb", "pembayaran", "bill", "electricity", "water", "rent", "wifi"],
-            shopping: ["baju", "celana", "sepatu", "sandal", "kaos", "kemeja", "jaket", "tas", "dompet", "skincare", "makeup", "shampoo", "sabun", "pasta", "tokopedia", "shopee", "lazada", "tiktok", "shop", "supermarket", "minimarket", "indomaret", "alfamart", "hypermart", "carrefour", "uniqlo", "zara", "hp", "laptop", "mouse", "keyboard", "buku"],
-            entertainment: ["bioskop", "cinema", "xxi", "cgv", "tiket", "konser", "music", "spotify", "netflix", "youtube", "disney", "game", "steam", "mobilelegend", "pubg", "topup", "hotel", "villa", "staycation", "liburan", "pantai", "travel", "gym", "fitness", "billiard", "bowling"],
-            health: ["obat", "apotek", "kimiafarma", "k24", "dokter", "klinik", "rumahsakit", "rs", "vitamin", "suplemen", "masker", "kacamata", "optik", "lab", "checkup", "paracetamol", "bodrex"],
-            income: ["gaji", "salary", "paycheck", "thr", "bonus", "freelance", "proyek", "project", "omset", "penjualan", "jual", "profit", "deviden", "investasi", "crypto", "cashback", "refund", "transfer", "kiriman"]
+            food: [
+                "kopi", "coffee", "latte", "cappuccino", "espresso", "americano", "mocha", "macchiato", "matcha", "boba", "chatime", "mixue", "esteh", "janjijiwa", "kenangan", "fore", "starbucks", "nasi", "goreng", "padang", "sate", "bakso", "seblak", "mie", "ramen", "sushi", "makan", "siang", "malam", "sarapan", "food", "lunch", "dinner", "snack", "roti", "bakery", "martabak", "pizza", "burger", "mcd", "kfc", "teh", "jus", "gofood", "grabfood", "shopeefood", "resto", "warung", "café", "cafe", "ayce", "pempek", "dimsum", "ayam", "bebek", "soto", "sotoayam", "rendang", "uduk", "geprek", "penyet", "bakmi", "kwetiau", "bihun", "capcay", "fuyunghai", "rawon", "gulai", "tongseng", "sop", "iga", "buntut", "tengkleng", "gudeg", "batagor", "siomay", "cilok", "cireng", "tekwan", "otak-otak", "kebab", "hotdog", "taco", "steak", "pasta", "spaghetti", "lasagna", "chicken", "fish", "seafood", "kepiting", "udang", "cumi", "gurame", "lele", "nila", "chocolate", "cokelat", "es", "ice", "cream", "gelato", "donut", "doughnut", "jco", "dunkin", "rotio", "breadtalk", "holland", "keju", "susu", "yogurt", "fruit", "buah", "melon", "semangka", "pisang", "apel", "jeruk", "mangga", "alpukat", "durian", "nangka", "rambutan", "kelapa", "bumbu", "kecap", "garam", "gula", "minyak", "beras", "telur", "daging", "sapi", "kambing", "babi", "tempe", "tahu", "kerupuk", "emping", "kue", "pastry", "croissant", "croffle", "waffle", "pancake", "dessert", "pudding", "jelly", "biskuit", "chitato", "lays", "doritos", "pringles", "cheetos", "angkringan", "warteg", "dcost", "pepperlunch", "yoshinoya", "sukiya", "marugame", "hokben", "solaria", "tawan", "imperial", "gacoan", "fried", "grilled", "roast", "barbecue", "bbq", "hotpot", "shabu", "grill"
+            ],
+            transport: [
+                "bensin", "pertalite", "pertamax", "solar", "dex", "shell", "bp", "v-power", "fuel", "gas", "gojek", "goride", "gocar", "grab", "grabbike", "grabcar", "maxim", "indriver", "ojek", "taksi", "taxi", "e-toll", "etoll", "e-money", "flazz", "parkir", "parking", "kereta", "krl", "mrt", "lrt", "bus", "busway", "transjakarta", "angkot", "tiket", "flight", "pesawat", "garuda", "lion", "airasia", "batik", "citilink", "superairjet", "sriwijaya", "travel", "traveloka", "tiketcom", "agoda", "service", "oli", "ban", "cuci", "bengkel", "tambal", "rem", "aki", "helm", "sparepart", "kendaraan", "tol", "gerbang", "pass", "shuttle", "carpool", "uber", "lyft", "scooter", "sepeda", "motor", "mobil", "sewa", "rental", "jashujan", "spooring", "balancing", "tuneup", "stnk", "sim", "denda", "tilang", "kir", "derek", "tow", "towing"
+            ],
+            bills: [
+                "listrik", "pln", "token", "pdam", "air", "internet", "indihome", "biznet", "firstmedia", "myrepublic", "cbn", "xlhome", "pulsa", "kuota", "telkomsel", "xl", "tri", "smartfren", "indosat", "axis", "sewa", "kontrakan", "kos", "kost", "kpr", "cicilan", "angsuran", "asuransi", "bpjs", "pajak", "pbb", "pph", "ppn", "pembayaran", "bill", "electricity", "water", "rent", "wifi", "tv", "kabel", "berlangganan", "subscription", "iuran", "kebersihan", "keamanan", "pemeliharaan", "maintenance", "domain", "hosting", "vps", "cloud", "aws", "google", "azure", "cloudflare", "github", "netlify", "vercel", "midtrans", "xendit", "stripe", "paypal", "admin", "biaya", "charge", "fee", "bunga", "denda", "pinjaman", "pinjol", "paylater", "kredivo", "akulaku", "spaylater", "gopaylater", "lazpaylater", "kartukredit", "creditcard"
+            ],
+            shopping: [
+                "baju", "celana", "sepatu", "sandal", "kaos", "kemeja", "jaket", "tas", "dompet", "skincare", "makeup", "shampoo", "sabun", "pasta", "tokopedia", "shopee", "lazada", "tiktok", "shop", "supermarket", "minimarket", "indomaret", "alfamart", "hypermart", "carrefour", "transmart", "hero", "superindo", "uniqlo", "zara", "h&m", "pull&bear", "bershka", "mango", "hp", "laptop", "mouse", "keyboard", "buku", "dress", "rok", "gamis", "hijab", "kerudung", "mukena", "sarung", "peci", "underwear", "kaoskaki", "gelang", "kalung", "cincin", "anting", "perhiasan", "jam", "jamtangan", "kacamata", "parfum", "cologne", "deodorant", "lotion", "serum", "sunscreen", "toner", "cleanser", "moisturizer", "lipstik", "cushion", "foundation", "mascara", "eyeliner", "bedak", "kapas", "tissue", "tisu", "popok", "pampers", "piring", "gelas", "panci", "wajan", "kompor", "pisau", "alat", "perabotan", "furniture", "mebel", "kasur", "bantal", "guling", "sprei", "selimut", "handuk", "sikat", "sapu", "pel", "pembersih", "deterjen", "rinso", "soklin", "attack", "molto", "bayclin", "tempat", "rak", "meja", "kursi", "lemari", "komputer", "pc", "monitor", "printer", "tinta", "paper", "kertas", "pulpen", "pensil", "spidol", "komik", "novel", "stationery", "hardware", "perkakas", "obeng", "tang", "palu", "paku", "cat", "lampu", "stopkontak", "kabel"
+            ],
+            entertainment: [
+                "bioskop", "cinema", "xxi", "cgv", "cinepolis", "tiket", "konser", "music", "spotify", "netflix", "youtube", "disney", "hbo", "vidio", "viu", "iqiyi", "game", "steam", "mobilelegend", "pubg", "freefire", "genshin", "valorant", "roblox", "playstation", "xbox", "nintendo", "topup", "diamond", "voucher", "garena", "unipin", "codashop", "itemku", "hotel", "villa", "staycation", "liburan", "pantai", "gunung", "museum", "zoo", "ragunan", "taman", "safari", "dufan", "ancol", "transstudio", "travel", "gym", "fitness", "billiard", "bowling", "karaoke", "ktv", "spa", "pijat", "massage", "sauna", "event", "festival", "gamecenter", "timezone", "funworld", "arcade", "biliar", "renang", "kolam", "wahana", "camping", "hiking", "outbound"
+            ],
+            health: [
+                "obat", "apotek", "kimiafarma", "k24", "century", "guardian", "dokter", "klinik", "rumahsakit", "rs", "puskesmas", "vitamin", "suplemen", "masker", "kacamata", "optik", "melawai", "seis", "lab", "laboratorium", "prodia", "pramita", "checkup", "paracetamol", "bodrex", "panadol", "promag", "entrostop", "tolakangin", "antangin", "counterpain", "voltaren", "minyakkayuputih", "telon", "betadine", "perban", "kassa", "plester", "hansaplast", "sanitizer", "alkohol", "termometer", "tensi", "obatcacing", "obatbatuk", "obatflu", "obatdarah", "obatgula", "obatkolesterol", "antibiotik", "resep", "pemeriksaan", "konsultasi", "rawat", "inap", "jalan", "ugd", "igd", "operasi", "tes", "swab", "antigen", "pcr", "behel", "gigi", "tambalgigi", "cabutgigi", "scalling", "herbal", "jamu"
+            ],
+            income: [
+                "gaji", "salary", "paycheck", "thr", "bonus", "freelance", "proyek", "project", "omset", "penjualan", "jual", "profit", "deviden", "dividend", "investasi", "crypto", "bitcoin", "ethereum", "reksadana", "saham", "bibit", "ajaib", "pluang", "stockbit", "cashback", "refund", "transfer", "kiriman", "komisi", "insentif", "bunga", "tabungan", "deposito", "hasil", "dividen", "klaim", "asuransi", "hibah", "hadiah", "menang", "lomba", "giveaway", "royalti", "royalty", "pesangon", "honor", "honorarium", "fee", "tips", "tip", "sedekah", "zakat", "donasi", "piutang", "pelunasan", "kembalian"
+            ]
         };
 
         /* Preset Examples */
@@ -639,16 +640,6 @@
             ]
         };
 
-        /* Application State */
-        let currentLang = localStorage.getItem('se_lang') || 'id';
-        let currentCurrency = localStorage.getItem('se_curr') || 'IDR';
-        let usdToIdrRate = 16250;
-        let transactions = [];
-        let mlModel = {};
-        let chartDoughnut = null;
-        let chartBar = null;
-
-        /* STREAMING_CHUNK:Defining Natural Language Parser with dot separator handling... */
         /* Fetch Real-time Currency Rate */
         async function fetchExchangeRate() {
             try {
@@ -663,20 +654,37 @@
             }
         }
 
-        /* ML Model Initialization */
+        /* ML Model Initialization with Auto-Merge */
         function initMLModel() {
             const saved = localStorage.getItem('se_ml_model');
             if (saved) {
-                mlModel = JSON.parse(saved);
+                try {
+                    mlModel = JSON.parse(saved);
+                } catch (e) {
+                    mlModel = {};
+                }
             } else {
                 mlModel = {};
-                for (const [cat, words] of Object.entries(INITIAL_CORPUS)) {
-                    words.forEach(word => {
-                        const w = word.toLowerCase();
-                        if (!mlModel[w]) mlModel[w] = {};
-                        mlModel[w][cat] = (mlModel[w][cat] || 0) + 10;
-                    });
-                }
+            }
+
+            let hasNewWords = false;
+            for (const [cat, words] of Object.entries(INITIAL_CORPUS)) {
+                words.forEach(word => {
+                    const w = word.toLowerCase().trim();
+                    if (w) {
+                        if (!mlModel[w]) {
+                            mlModel[w] = {};
+                            hasNewWords = true;
+                        }
+                        if (!mlModel[w][cat]) {
+                            mlModel[w][cat] = 10;
+                            hasNewWords = true;
+                        }
+                    }
+                });
+            }
+
+            if (hasNewWords || !saved) {
                 saveMLModel();
             }
         }
@@ -685,14 +693,13 @@
             localStorage.setItem('se_ml_model', JSON.stringify(mlModel));
         }
 
-        /* RegEx Natural Language Parser (Supports Speech Dots like 10.000) */
+        /* RegEx Natural Language Parser */
         function parseNaturalLanguageInput(text) {
             if (!text || text.trim() === '') return { text: '', amountInIdr: 0 };
 
             let textClean = text.toLowerCase();
             let detectedAmountInIdr = 0;
 
-            // Step 1: Spoken number words converter
             const wordToNum = {
                 'sejutaa': '1000000', 'sejuta': '1000000', 'seratus ribu': '100000',
                 'lima puluh ribu': '50000', 'dua puluh lima ribu': '25000',
@@ -703,13 +710,8 @@
                 textClean = textClean.replace(new RegExp(w, 'g'), num);
             }
 
-            // Step 2: Match USD currency ($50, $4.5)
             const usdMatch = textClean.match(/\$\s*(\d+(?:\.\d+)?)/);
-            
-            // Step 3: Match Indonesian thousand-separated numbers like 10.000, 150.000, 1.500.000
             const dotThousandMatch = textClean.match(/\b(\d{1,3}(?:\.\d{3})+)\s*(rb|ribu|k|jt|juta)?\b/i);
-
-            // Step 4: Standard numbers with shortforms like 25rb, 50k, 2.5jt, 2,5jt, 10000
             const standardMatch = textClean.match(/(\d+(?:[\.,]\d+)?)\s*(rb|ribu|k|jt|juta)?/i);
 
             if (usdMatch) {
@@ -740,7 +742,6 @@
             };
         }
 
-        /* STREAMING_CHUNK:Defining Naive Bayes Classification algorithm... */
         /* Naive Bayes Categorizer */
         function classifyTextNaiveBayes(text) {
             if (!text) return { category: 'other', confidence: 0 };
@@ -777,7 +778,7 @@
             return { category: bestCat, confidence: matchedWords > 0 ? Math.max(confidence, 65) : 30 };
         }
 
-        /* Active Retraining Feedback Loop */
+        /* Active Retraining */
         function retrainMLModel(description, newCategory) {
             const tokens = description.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/);
             tokens.forEach(token => {
@@ -874,7 +875,7 @@
             localStorage.setItem('se_txs', JSON.stringify(transactions));
         }
 
-        /* STREAMING_CHUNK:Rendering UI updates and tables... */
+        /* Render UI Functions */
         function renderAll() {
             renderTranslations();
             renderPresets();
@@ -902,7 +903,7 @@
             const container = document.getElementById('presetChips');
             const list = PRESETS[currentLang];
             container.innerHTML = list.map(p => `
-                <button type="button" onclick="selectPreset('${escapeHtml(p.text)}')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-purple-100 dark:hover:bg-purple-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition font-medium text-xs min-h-[32px]">
+                <button type="button" onclick="selectPreset('${escapeHtml(p.text)}')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-100 dark:hover:bg-emerald-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition font-medium text-xs min-h-[32px]">
                     ${escapeHtml(p.desc)}
                 </button>
             `).join('');
@@ -912,10 +913,12 @@
             let totalIncome = 0;
             let totalExpense = 0;
 
-            transactions.forEach(t => {
-                if (t.type === 'income') totalIncome += t.amountInIdr;
-                else totalExpense += t.amountInIdr;
-            });
+            if (Array.isArray(transactions)) {
+                transactions.forEach(t => {
+                    if (t.type === 'income') totalIncome += t.amountInIdr;
+                    else totalExpense += t.amountInIdr;
+                });
+            }
 
             const netBalance = totalIncome - totalExpense;
 
@@ -929,7 +932,7 @@
             const search = document.getElementById('searchInput').value.toLowerCase();
             const dict = TRANSLATIONS[currentLang];
 
-            const filtered = transactions.filter(t => t.desc.toLowerCase().includes(search));
+            const filtered = (transactions || []).filter(t => t.desc.toLowerCase().includes(search));
 
             if (filtered.length === 0) {
                 tbody.innerHTML = `
@@ -953,7 +956,7 @@
                         ${t.type === 'income' ? '+' : '-'}${formatCurrency(t.amountInIdr)}
                     </td>
                     <td class="p-3 sm:p-4">
-                        <select onchange="updateTxCategory(${t.id}, this.value)" aria-label="Change category for ${escapeHtml(t.desc)}" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 min-h-[32px]">
+                        <select onchange="updateTxCategory(${t.id}, this.value)" aria-label="Change category for ${escapeHtml(t.desc)}" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[32px]">
                             ${Object.keys(CATEGORIES).map(catKey => `
                                 <option value="${catKey}" ${t.category === catKey ? 'selected' : ''}>
                                     ${escapeHtml(CATEGORIES[catKey][currentLang])}
@@ -1014,7 +1017,7 @@
             document.getElementById('resetConfirmModal').classList.toggle('hidden', !show);
         }
 
-        /* STREAMING_CHUNK:Rendering Chart.js visuals safely... */
+        /* Safe Chart.js Rendering */
         function renderCharts() {
             if (typeof Chart === 'undefined') return;
 
@@ -1024,11 +1027,13 @@
             const catTotals = {};
             Object.keys(CATEGORIES).forEach(k => catTotals[k] = 0);
 
-            transactions.filter(t => t.type === 'expense').forEach(t => {
-                if (catTotals[t.category] !== undefined) {
-                    catTotals[t.category] += t.amountInIdr;
-                }
-            });
+            if (Array.isArray(transactions)) {
+                transactions.filter(t => t.type === 'expense').forEach(t => {
+                    if (catTotals[t.category] !== undefined) {
+                        catTotals[t.category] += t.amountInIdr;
+                    }
+                });
+            }
 
             const labels = [];
             const dataVals = [];
@@ -1133,7 +1138,7 @@
         /* Export CSV */
         function exportCSV() {
             let csvContent = "data:text/csv;charset=utf-8,ID,Date,Description,Amount_IDR,Category,Type\n";
-            transactions.forEach(t => {
+            (transactions || []).forEach(t => {
                 csvContent += `${t.id},${t.date},"${t.desc.replace(/"/g, '""')}",${t.amountInIdr},${t.category},${t.type}\n`;
             });
             const encodedUri = encodeURI(csvContent);
@@ -1182,7 +1187,7 @@
             document.getElementById('mlModal').classList.toggle('hidden', !show);
         }
 
-        /* Automatic Theme Detection */
+        /* Theme Handler */
         function initTheme() {
             const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.classList.toggle('dark', isDark);
@@ -1194,11 +1199,11 @@
             renderCharts();
         });
 
-        /* Window Load Lifecycle */
+        /* Lifecycle Onload */
         window.onload = async function() {
-            initTheme();
             initMLModel();
             loadTransactions();
+            initTheme();
             await fetchExchangeRate();
             renderAll();
         };
